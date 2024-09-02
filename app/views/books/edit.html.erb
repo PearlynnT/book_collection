@@ -1,10 +1,26 @@
-<h1>Editing book</h1>
+<%= link_to("Back to List", books_path, class: 'back-link') %>
 
-<%= render "form", book: @book %>
+<% if flash[:notice] %>
+  <div class="notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 
-<br>
+<% if flash[:alert] %>
+  <div class="alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
 
-<div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
+<div class="book edit">
+  <h2>Edit Book</h2>
+
+  <%= form_for(@book) do |f| %>
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Edit Book") %>
+    </div>
+
+  <% end %>
 </div>
