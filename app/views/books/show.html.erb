@@ -1,10 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @book %>
+<%= link_to("Back to List", books_path, class: 'back-link') %>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+<div class="book show">
+  <h2>Show book</h2>
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <table summary="Book detail view">
+    <tr>
+      <th>Title</th>
+      <td><%= @book.title %></td>
+    </tr>
+    <tr>
+        <th>Created</th>
+        <td><%= @book.created_at %></td>
+    </tr>
+    <tr>
+        <th>Updated</th>
+        <td><%= @book.updated_at %></td>
+    </tr>
+  </table>
 </div>
