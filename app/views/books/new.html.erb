@@ -1,13 +1,13 @@
 <%= link_to("Back to List", books_path, class: 'back-link') %>
 
 <% if flash[:notice] %>
-  <div class="notice">
+  <div class="notice" style="color: green; font-weight: bold;">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
 <% if flash[:alert] %>
-  <div class="alert">
+  <div class="alert" style="color: red; font-weight: bold;">
     <%= flash[:alert] %>
   </div>
 <% end %>
