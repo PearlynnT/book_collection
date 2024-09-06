@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_book, only: %i[show edit update destroy]
 
   # GET /books or /books.json
   def index
@@ -30,10 +32,10 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      flash[:notice] = "Book was successfully created."
+      flash[:notice] = 'Book was successfully created.'
       redirect_to books_path
     else
-      flash[:alert] = "Error creating book."
+      flash[:alert] = 'Error creating book.'
       render('new')
     end
 
@@ -52,10 +54,10 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = "Book was successfully updated."
+      flash[:notice] = 'Book was successfully updated.'
       redirect_to book_path(@book)
     else
-      flash[:alert] = "Error updating book."
+      flash[:alert] = 'Error updating book.'
       render('edit')
     end
 
@@ -74,7 +76,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash[:notice] = "Book was successfully destroyed."
+    flash[:notice] = 'Book was successfully destroyed.'
     redirect_to books_path
 
     # @book.destroy
@@ -86,13 +88,14 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def book_params
-      params.require(:book).permit(:title, :author, :price, :published_date)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def book_params
+    params.require(:book).permit(:title, :author, :price, :published_date)
+  end
 end
