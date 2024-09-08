@@ -45,6 +45,9 @@ gem 'yaml_db'
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
+# Database Seeding for Heroku
+gem 'seed_dump'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
