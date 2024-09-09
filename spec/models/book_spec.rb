@@ -35,4 +35,9 @@ RSpec.describe Book, type: :model do
     book = Book.new(title: "Macbeth", author: "William Shakespeare", price: 50, published_date: nil)
     expect(book).not_to be_valid
   end
+
+  it "should create a valid book with seed data" do
+    book = Book.first
+    expect(book).to be_valid
+  end
 end
